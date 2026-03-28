@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAF9F6;
+  --foreground: #1A1A1A; /* Adjusted to charcoal */
+  --accent: #C5A059;
+  --secondary: #F8F7F4;
+  --card-bg: #FDFCFB;
+  --charcoal: #1A1A1A;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-card: var(--card-bg);
+  --color-charcoal: var(--charcoal);
+}
+
+html, body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto !important; /* Managed by Lenis */
+  tap-highlight-color: transparent;
+}
+
+/* Ensure touch targets are min 44x44px for mobile accessibility */
+button, a, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (max-width: 640px) {
+  html, body {
+    font-size: 16px;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--charcoal);
+  border: 2px solid var(--background);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animations */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.mosaic-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--secondary);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mosaic-item:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.mosaic-item:hover img, .mosaic-item:hover video {
+  transform: scale(1.05); filter: brightness(0.7);
+}
