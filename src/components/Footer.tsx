@@ -1,106 +1,53 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
+import { C, BRAND, body, serif } from './data';
+import { Reveal } from './ui';
 
 export default function Footer() {
-  const links = {
-    services: [
-      { name: "Gents Hair Units", href: "/problem-solution" },
-      { name: "Ladies Hair Toppers", href: "/problem-solution" },
-      { name: "High-Quality Wigs", href: "/problem-solution" },
-      { name: "Expert Styling", href: "/problem-solution" },
-    ],
-    company: [
-      { name: "About Us", href: "/about-us" },
-      { name: "Transformations", href: "/hair-transformation" },
-      { name: "Customer Feedback", href: "/customer-solution" },
-      { name: "Contact Us", href: "/contact-us" },
-    ],
-    social: [
-      { name: "Instagram", href: "https://www.instagram.com/eminence_hair_/?hl=en" },
-      { name: "Facebook", href: "#" },
-      { name: "YouTube", href: "#" },
-      { name: "WhatsApp", href: "https://wa.me/918799288809" },
-    ],
-  };
-
   return (
-    <footer className="bg-charcoal text-white py-16 sm:py-24 border-t border-accent/20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-8 mb-16 sm:mb-20">
-          {/* Brand Col */}
-          <div className="flex flex-col gap-6 sm:gap-8">
-            <Image
-              src="/images/cropped-EMINENCE-LOGO-BLACK-300x100.png"
-              alt="Eminence Hair Logo"
-              width={160}
-              height={53}
-              className="invert brightness-200 object-contain"
-            />
-            <div className="space-y-4">
-              <p className="text-white/60 text-xs sm:text-[13px] leading-relaxed italic">
-                "Feel the transformation"
-              </p>
-              <p className="text-white/40 text-[11px] sm:text-[12px] leading-relaxed">
-                GF 7 Shrinath Complex, Nr Jio Petrol Pump, High Tension Road, Subhanpura, Vadodara.
-              </p>
-              <p className="text-accent text-xs sm:text-[13px] font-medium">+91 87992 88809</p>
+    <footer className="md-py-60 md-px-20" style={{ background:C.dark, padding:"80px 40px 32px", borderTop:`1px solid rgba(201,169,110,.16)` }}>
+      <div style={{ maxWidth:1380, margin:"0 auto" }}>
+        <Reveal>
+          <div className="md-col" style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:48, marginBottom:60 }}>
+            <div>
+              <img src="/images/cropped-EMINENCE-LOGO-BLACK-300x100.png" alt="Logo" style={{ height:50, filter:"invert(1)", marginBottom:20 }} />
+              <div style={{ fontFamily:body, fontSize:17, color:"rgba(255,255,255,.5)", lineHeight:1.9, maxWidth:320 }}>
+                {BRAND.email}<br />{BRAND.phone}<br />{BRAND.address}
+              </div>
+            </div>
+            
+            <div>
+              <div style={{ fontFamily:body, fontSize:13, fontWeight:700, letterSpacing:3, color:C.gold, textTransform:"uppercase", marginBottom:24 }}>Quick Links</div>
+              {[
+                ["Services","/services"], 
+                ["Transformations","/transformations"], 
+                ["Testimonials","/testimonials"], 
+                ["About Us","/about"], 
+                ["Book Appointment","/contact"]
+              ].map(([l,path]) => (
+                <Link key={path} href={path} style={{ display:"block", textDecoration:"none", textAlign:"left", fontFamily:body, fontSize:17, fontWeight:600, color:"rgba(255,255,255,.5)", padding:"6px 0", letterSpacing:.5, background:"transparent", border:"none", transition:"color .3s" }}>
+                  {l}
+                </Link>
+              ))}
+            </div>
+            
+            <div>
+              <div style={{ fontFamily:body, fontSize:13, fontWeight:700, letterSpacing:3, color:C.gold, textTransform:"uppercase", marginBottom:24 }}>Connect</div>
+              <div style={{ fontFamily:body, fontSize:17, color:"rgba(255,255,255,.5)", marginBottom:8 }}>{BRAND.instagram}</div>
+              <div style={{ fontFamily:body, fontSize:17, color:"rgba(255,255,255,.5)", marginBottom:24 }}>Facebook · Youtube</div>
+              <a href={`https://wa.me/${BRAND.whatsapp}`} target="_blank" rel="noreferrer"
+                style={{ display:"inline-block", background:`linear-gradient(135deg,${C.gold},${C.goldDk})`, borderRadius:4, padding:"12px 26px", textDecoration:"none", fontFamily:body, fontSize:13, fontWeight:700, letterSpacing:2.5, color:C.white, textTransform:"uppercase", boxShadow:"0 10px 20px rgba(201,169,110,.25)" }}>
+                WhatsApp Us
+              </a>
             </div>
           </div>
+        </Reveal>
 
-          {/* Services Col */}
-          <div>
-            <h4 className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Solutions</h4>
-            <ul className="flex flex-col gap-3 sm:gap-4">
-              {links.services.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-white/40 hover:text-white transition-colors text-xs sm:text-[13px]">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Col */}
-          <div>
-            <h4 className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Eminence</h4>
-            <ul className="flex flex-col gap-3 sm:gap-4">
-              {links.company.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-white/40 hover:text-white transition-colors text-xs sm:text-[13px]">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social Col */}
-          <div>
-            <h4 className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-6 sm:mb-8">Follow Us</h4>
-            <ul className="flex flex-col gap-3 sm:gap-4">
-              {links.social.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-white/40 hover:text-white transition-colors text-xs sm:text-[13px]">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 sm:pt-12 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
-          <p className="text-white/20 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-center sm:text-left">
-            © {new Date().getFullYear()} Eminence Hair. Designed for Excellence.
-          </p>
-          <div className="flex gap-8 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-white/20">
-            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-accent transition-colors">Terms</Link>
-          </div>
+        <div style={{ borderTop:"1px solid rgba(255,255,255,.08)", paddingTop:28, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:12 }}>
+          <span style={{ fontFamily:body, fontSize:14, color:"rgba(255,255,255,.3)" }}>© 2026 Eminence Hair. All rights reserved.</span>
+          <span style={{ fontFamily:body, fontSize:14, color:"rgba(255,255,255,.3)" }}>Designed for Elegance</span>
         </div>
       </div>
     </footer>
