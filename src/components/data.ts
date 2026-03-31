@@ -76,6 +76,17 @@ export const IMAGES_FAQ = [
   "/images/EMINENCE/F A Q POST 4.jpg",
   "/images/EMINENCE/F A Q POST 5.jpg",
 ];
+export const IMAGES_UNUSED = [
+  "/images/11.png",
+  "/images/13.png",
+  "/images/14.png",
+  "/images/19.png",
+  "/images/23.png",
+  "/images/24.png",
+  "/images/26.png",
+];
+
+
 
 export const C = { cream: "#FAF6F1", gold: "#C9A96E", goldDk: "#B8924A", goldLt: "#E8D5B0", dark: "#130B04", brown: "#2E1A0E", mid: "#5C3D2A", white: "#FFFFFF", off: "#F5EFE8" };
 export const serif = "'Playfair Display', Georgia, serif";

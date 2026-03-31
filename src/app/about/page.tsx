@@ -3,6 +3,8 @@
 import React from "react";
 import { C, IMAGES_STORY, IMAGES_FAQ, body, serif } from "@/components/data";
 import { Reveal, Eyebrow } from "@/components/ui";
+import { ShowcaseCarousel } from "@/components/ShowcaseCarousel";
+
 
 export default function AboutPage() {
   return (
@@ -26,7 +28,10 @@ export default function AboutPage() {
          ))}
       </div>
 
+      <ShowcaseCarousel />
+
       <div className="ab-g" style={{ maxWidth:1380, margin:"0 auto", padding:"140px 40px", display:"grid", gridTemplateColumns:"1fr 1.2fr", gap:100, alignItems:"center" }}>
+
         <Reveal y={40}>
           <div style={{ position:"relative" }}>
             <div style={{ background:`linear-gradient(145deg,${C.dark},${C.brown})`, borderRadius:4, padding:"72px 56px", position:"relative", overflow:"hidden", boxShadow:"0 20px 50px rgba(0,0,0,.2)" }}>

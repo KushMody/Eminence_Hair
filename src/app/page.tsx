@@ -41,18 +41,34 @@ function Hero() {
             </div>
           </div>
 
-          <div className="hero-img-stack" style={{ position: "relative", width: "100%", maxWidth: 420, marginLeft: "auto", ...a(.6) }}>
-            <div style={{ position: "absolute", inset: "-30px", background: `linear-gradient(135deg,${C.gold}20, transparent)`, filter: "blur(40px)", borderRadius: "50%", zIndex: 0 }} />
-            <div style={{ position: "relative", zIndex: 1, borderRadius: 12, overflow: "hidden", boxShadow: "0 40px 80px rgba(0,0,0,.1)", border: `1px solid rgba(201,169,110,.2)` }}>
-              <img src="/images/EMINENCE/FEB_26/7.png" alt="Eminence Transformation" style={{ width: "100%", height: "auto", display: "block", maxHeight: "68vh", objectFit: "contain" }} />
-            </div>
+          <div className="hero-img-stack" style={{ position: "relative", width: "100%", maxWidth: 540, marginLeft: "auto", ...a(.6) }}>
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gridTemplateRows:"repeat(2, 1fr)", gap:0, position:"relative", width:"100%", aspectRatio:"1/1" }}>
+              
+              {/* Before Image - Top Left */}
+              <div style={{ position:"relative", gridColumn:"1", gridRow:"1", zIndex:2, transform: "scale(1.1) rotate(-2deg)", marginTop: 20 }}>
+                 <div style={{ position:"absolute", top:-12, left:-12, fontFamily:serif, fontSize:10, fontWeight:700, color:C.gold, letterSpacing:2.5, background:C.white, padding:"5px 12px", borderRadius:40, boxShadow:"0 4px 12px rgba(0,0,0,.05)", zIndex: 10, border:`1px solid ${C.goldLt}` }}>BEFORE</div>
+                 <div style={{ borderRadius:12, overflow:"hidden", boxShadow:"0 20px 50px rgba(0,0,0,.1)", border:`6px solid ${C.white}`, background:C.white }}>
+                    <img src="/images/EMINENCE/FEB_26/7_1.png" alt="Before" style={{ width:"100%", height:"100%", display:"block", objectFit: "cover" }} />
+                 </div>
+              </div>
 
-            <div style={{ position: "absolute", left: -20, bottom: -40, background: C.white, border: `1px solid rgba(201,169,110,.4)`, borderRadius: 8, padding: "20px 24px", textAlign: "center", zIndex: 2, boxShadow: "0 30px 60px rgba(0,0,0,.08)", transform: "scale(0.95)", transformOrigin: "bottom left" }}>
-              <div style={{ fontFamily: serif, fontSize: 36, fontWeight: 700, color: C.goldDk, lineHeight: 1 }}>2000+</div>
-              <div style={{ fontFamily: body, fontSize: 10, fontWeight: 700, letterSpacing: 3, color: C.mid, textTransform: "uppercase", marginTop: 8 }}>Lives Transformed</div>
-              <div style={{ marginTop: 10 }}><Stars /></div>
+              {/* Decorative Frame Line */}
+              <div style={{ position:"absolute", top:"10%", left:"10%", width:"80%", height:"80%", border:`1px dashed ${C.gold}45`, borderRadius:24, zIndex:0 }} />
+              <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%) rotate(-45deg)", width:"70%", height:1, background:C.goldLt, zIndex:1, opacity:0.3 }} />
+
+              {/* After Image - Bottom Right */}
+              <div style={{ position:"relative", gridColumn:"2", gridRow:"2", zIndex:3, transform: "scale(1.15) rotate(1deg)", marginTop: -30, marginLeft: -30 }}>
+                 <div style={{ position:"absolute", bottom:10, right:10, fontFamily:serif, fontSize:11, fontWeight:700, color:C.white, letterSpacing:3, background:C.gold, padding:"8px 18px", borderRadius:40, boxShadow:"0 8px 20px rgba(0,0,0,.15)", zIndex: 10 }}>AFTER</div>
+                 <div style={{ borderRadius:12, overflow:"hidden", boxShadow:"0 30px 70px rgba(0,0,0,.15)", border:`8px solid ${C.white}`, background:C.white }}>
+                    <img src="/images/EMINENCE/FEB_26/7.png" alt="After" style={{ width:"100%", height:"100%", display:"block" }} />
+                 </div>
+              </div>
+
+
+
             </div>
           </div>
+
         </div>
       </div>
 
