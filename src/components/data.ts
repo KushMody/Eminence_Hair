@@ -88,9 +88,9 @@ export const TRANSFORM_COMPOSITES = [
 ];
 
 export const IMAGES_BEFORE_AFTER = [
-  "/images/EMINENCE/before after post -1.png",
-  "/images/EMINENCE/before after-2.png",
-  "/images/EMINENCE/before after-3.png",
+  "/images/Transformations/before after post -1.png",
+  "/images/Transformations/before after-2.png",
+  "/images/Transformations/before after-3.png",
 ];
 export const VIDEOS_FEEDBACK = [
   "/Videos/videoplayback-1.mp4",
