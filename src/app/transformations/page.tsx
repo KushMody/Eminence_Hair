@@ -12,34 +12,41 @@ export default function TransformationsPage() {
     <main style={{ background: C.off, minHeight: "100vh" }}>
       {/* First Viewport Section */}
       <div style={{
-        minHeight: "100vh", // Changed to minHeight for better overflow handling
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
         gap: 15,
         maxWidth: 1400,
         margin: "0 auto",
-        padding: "80px 40px 40px", 
+        padding: "90px 40px 20px",
         position: "relative"
       }}>
-        {/* Compact Header */}
+        {/* Compact Editorial Header */}
         <Reveal>
-          <div style={{ textAlign: "center", marginBottom: 0 }}>
-            <Eyebrow text="The Art of Restoration" center style={{ marginBottom: 0 }} />
-            <h1 style={{ fontFamily: serif, fontSize: "clamp(32px, 5vw, 64px)", fontWeight: 700, color: C.dark, marginBottom: 8, letterSpacing: "-0.02em" }}>
-              Eminence <span style={{ color: C.gold }}>Reveals</span>
-            </h1>
-            <p style={{ fontFamily: body, fontSize: "clamp(16px, 1.5vw, 18px)", color: C.mid, maxWidth: 600, margin: "0 auto", lineHeight: 1.4 }}>
-              Experience the transition from thinning hair to absolute confidence. Swipe to see the magic.
-            </p>
+          <div style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "flex-end",
+            width: "100%",
+            marginBottom: 10,
+            paddingBottom: 12,
+            borderBottom: `1px solid rgba(201,169,110,0.15)`
+          }}>
+            <div style={{ textAlign: "left" }}>
+              <Eyebrow text="The Art of Restoration" style={{ marginBottom: 0 }} />
+              <h1 style={{ fontFamily: serif, fontSize: "clamp(24px, 3.5vw, 44px)", fontWeight: 700, color: C.dark, marginBottom: 0, letterSpacing: "-0.02em", lineHeight: 1 }}>
+                Eminence <span style={{ color: C.gold }}>Reveals</span>
+              </h1>
+            </div>
           </div>
         </Reveal>
 
-        {/* Featured Transformation Slider - Viewport Optimized */}
-        <section style={{ height: "calc(100vh - 280px)", maxHeight: 650, minHeight: 400 }}>
+        {/* Featured Transformation Slider - Optimized for Hair Focus */}
+        <section style={{ height: "calc(100vh - 220px)", maxHeight: 780, minHeight: 500 }}>
           <Reveal y={30}>
-            <div style={{ background: C.white, padding: "16px", borderRadius: 32, boxShadow: "0 40px 100px rgba(0,0,0,0.08)", height: "100%", display: "flex", overflow: "hidden" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 40, alignItems: "center", width: "100%" }}>
+            <div style={{ background: C.white, padding: "24px", borderRadius: 32, boxShadow: "0 40px 100px rgba(0,0,0,0.1)", height: "100%", display: "flex", overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 60, alignItems: "center", width: "100%" }}>
                 <div style={{ height: "100%", borderRadius: 24, overflow: "hidden" }}>
                   <ComparisonSlider before={featured.before} after={featured.after} />
                 </div>
@@ -66,20 +73,33 @@ export default function TransformationsPage() {
 
       </div>
 
-      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "120px 40px" }}>
-        {/* Reveal Grid */}
-        <section style={{ marginBottom: 160, position: "relative", zIndex: 5 }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 40px" }}>
+        {/* Reveal Grid - One Viewport Optimized */}
+        <section style={{ 
+          minHeight: "100vh", 
+          display: "flex", 
+          flexDirection: "column", 
+          justifyContent: "center", 
+          padding: "80px 0",
+          position: "relative", 
+          zIndex: 5 
+        }}>
           <Reveal>
-            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 60 }}>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 40 }}>
               <div>
-                <Eyebrow text="Interactive Gallery" style={{ marginBottom: 0 }} />
-                <h2 style={{ fontFamily: serif, fontSize: 44, color: C.dark }}>Hover to Reveal</h2>
+                <Eyebrow text="Interactive Gallery" style={{ marginBottom: 4 }} />
+                <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 44px)", color: C.dark, margin: 0 }}>Hover to Reveal</h2>
               </div>
-              <p style={{ fontFamily: body, fontSize: 18, color: C.mid, maxWidth: 400 }}>Explore more life-changing results from our satisfied clients across Vadodara.</p>
+              <p style={{ fontFamily: body, fontSize: "clamp(15px, 1.2vw, 17px)", color: C.mid, maxWidth: 380, margin: 0, textAlign: "right" }}>Explore more life-changing results from our satisfied clients across Vadodara.</p>
             </div>
           </Reveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: 40 }}>
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(2, 1fr)", 
+            gap: 30,
+            maxHeight: "calc(100vh - 250px)",
+          }}>
             {others.map((pair, i) => (
               <RevealCard key={i} {...pair} delay={i * 0.15} />
             ))}
