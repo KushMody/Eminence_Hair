@@ -15,13 +15,20 @@ export const TIME_SLOTS = [
   { id: "evening", label: "6 PM – 8 PM", sub: "Evening" },
 ] as const;
 
+import logo1 from "@/images/logos/1.png";
+import logo2 from "@/images/logos/2.png";
+import logo3 from "@/images/logos/3.png";
+import logo4 from "@/images/logos/4.png";
+import logo5 from "@/images/logos/5.png";
+import logo6 from "@/images/logos/6.png";
+
 export const SERVICES = [
-  { id: "custom-wigs", icon: "◈", title: "Custom Wigs", subtitle: "Full Head · Half Head · V-Part", desc: "A curated selection of high-quality wigs crafted to match your natural look. Every wig is a work of art — fitted and styled by our expert team.", badge: "Signature" },
-  { id: "transformations", icon: "✦", title: "Hair Transformations", subtitle: "Extensions · Toppers · Patches", desc: "Immediate, visible transformation. We seamlessly blend premium hair with your natural hair for a result that surprises even you.", badge: "Most Popular" },
-  { id: "problem-solutions", icon: "❋", title: "Problem Solutions", subtitle: "Thinning · Bald Patches · Hair Loss", desc: "Expert consultations and immediate solutions for hair loss, thinning crowns, receding hairlines, and post-medical hair concerns.", badge: "" },
-  { id: "styling", icon: "◉", title: "Expert Styling", subtitle: "Wash · Set · Blowout", desc: "Professional wig styling and finishing services. Walk in with your wig or try one of ours — walk out looking extraordinary.", badge: "" },
-  { id: "consultation", icon: "◇", title: "Free Consultation", subtitle: "Personalised Assessment", desc: "Not sure what you need? Book a free one-on-one consultation. Our team will assess your concerns and recommend the best solution.", badge: "Free" },
-  { id: "bridal", icon: "✿", title: "Bridal & Occasions", subtitle: "Bridal · Party · Events", desc: "Look breathtaking on your most special days. Complete bridal hair experiences from trial fittings to the day-of glamour.", badge: "Limited Slots" },
+  { id: "custom-wigs", logo: logo1, icon: "◈", title: "Custom Wigs", subtitle: "Full Head · Half Head · V-Part", desc: "A curated selection of high-quality wigs crafted to match your natural look. Every wig is a work of art — fitted and styled by our expert team.", badge: "Signature" },
+  { id: "transformations", logo: logo2, icon: "✦", title: "Hair Transformations", subtitle: "Extensions · Toppers · Patches", desc: "Immediate, visible transformation. We seamlessly blend premium hair with your natural hair for a result that surprises even you.", badge: "Most Popular" },
+  { id: "problem-solutions", logo: logo3, icon: "❋", title: "Problem Solutions", subtitle: "Thinning · Bald Patches · Hair Loss", desc: "Expert consultations and immediate solutions for hair loss, thinning crowns, receding hairlines, and post-medical hair concerns.", badge: "" },
+  { id: "styling", logo: logo4, icon: "◉", title: "Expert Styling", subtitle: "Wash · Set · Blowout", desc: "Professional wig styling and finishing services. Walk in with your wig or try one of ours — walk out looking extraordinary.", badge: "" },
+  { id: "consultation", logo: logo5, icon: "◇", title: "Free Consultation", subtitle: "Personalised Assessment", desc: "Not sure what you need? Book a free one-on-one consultation. Our team will assess your concerns and recommend the best solution.", badge: "Free" },
+  { id: "bridal", logo: logo6, icon: "✿", title: "Bridal & Occasions", subtitle: "Bridal · Party · Events", desc: "Look breathtaking on your most special days. Complete bridal hair experiences from trial fittings to the day-of glamour.", badge: "Limited Slots" },
 ];
 
 export const WIG_SOLUTIONS = [
@@ -53,6 +60,33 @@ export const VIDEOS_TRANSFORM = [
   "/Videos/WhatsApp-Video-2024-09-09-at-16.38.18_4cb68b69.mp4",
   "/Videos/VID-20240724-WA0020.mp4",
 ];
+export const TRANSFORM_PAIRS = [
+  { 
+    before: "/images/Transformations/before after-2.png", 
+    after: "/images/Transformations/before after-3.png", 
+    title: "Crown Transformation", 
+    desc: "Complete restoration of the crown area with a seamless hair system." 
+  },
+  { 
+    before: "/images/Transformations/11.png", 
+    after: "/images/Transformations/12.png", 
+    title: "Frontal Hairline", 
+    desc: "Redefining the frontal hairline for a more youthful and natural look." 
+  },
+  { 
+    before: "/images/Transformations/before after 2.png", 
+    after: "/images/Transformations/before after 3.png", 
+    title: "Volume Enhancement", 
+    desc: "Adding significant volume and density to thinning hair." 
+  },
+];
+
+export const TRANSFORM_COMPOSITES = [
+  "/images/Transformations/before after post -1.png",
+  "/images/Transformations/before after 1.png",
+  "/images/Transformations/10.png",
+];
+
 export const IMAGES_BEFORE_AFTER = [
   "/images/EMINENCE/before after post -1.png",
   "/images/EMINENCE/before after-2.png",

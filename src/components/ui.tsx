@@ -17,12 +17,12 @@ export function useAnim(): [React.RefObject<HTMLDivElement | null>, boolean] {
 export function Reveal({ children, d = 0, y = 30, x = 0, scale = 1 }: { children: React.ReactNode; d?: number; y?: number; x?: number; scale?: number }) {
   const [ref, vis] = useAnim();
   return (
-    <div 
-      ref={ref as any} 
-      style={{ 
-        opacity: vis ? 1 : 0, 
-        transform: vis ? "none" : `translate(${x}px, ${y}px) scale(${scale})`, 
-        transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${d}s` 
+    <div
+      ref={ref as any}
+      style={{
+        opacity: vis ? 1 : 0,
+        transform: vis ? "none" : `translate(${x}px, ${y}px) scale(${scale})`,
+        transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${d}s`
       }}
     >
       {children}
@@ -35,9 +35,9 @@ export function Stars({ n = 5 }: { n?: number }) {
   return <span style={{ color: C.gold, letterSpacing: 2 }}>{"★".repeat(n)}</span>;
 }
 
-export function Eyebrow({ text, center, light }: { text: string; center?: boolean; light?: boolean }) {
+export function Eyebrow({ text, center, light, style }: { text: string; center?: boolean; light?: boolean; style?: React.CSSProperties }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 14, justifyContent: center ? "center" : "flex-start", marginBottom: 18 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 14, justifyContent: center ? "center" : "flex-start", marginBottom: 18, ...style }}>
       <div style={{ width: 32, height: 1, background: C.gold }} />
       <span style={{ fontFamily: body, fontSize: 11, letterSpacing: 4, color: light ? C.goldLt : C.gold, textTransform: "uppercase" }}>{text}</span>
       {center && <div style={{ width: 32, height: 1, background: C.gold }} />}
@@ -52,7 +52,7 @@ export function Btn({ children, onClick, outline, large, dark, type = "button" }
   const bd = outline ? `1px solid ${dark ? C.dark : (h ? C.gold : "rgba(255,255,255,.32)")}` : "none";
   return (
     <button type={type} onClick={onClick} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} style={{
-      padding: large ? "18px 48px" : "13px 32px", background: bg, border: bd, borderRadius: 2, fontFamily: body, fontSize: large ? 15 : 13, fontWeight: 700,
+      padding: large ? "18px 48px" : "15px 20px", background: h ? "#c6a669" : bg, border: bd, borderRadius: 8, fontFamily: body, fontSize: large ? 13 : 11, fontWeight: 700,
       letterSpacing: 3, textTransform: "uppercase", color: tc, cursor: "pointer",
       boxShadow: outline ? "none" : h ? "0 4px 24px rgba(201,169,110,.45)" : "0 8px 32px rgba(201,169,110,.28)",
       transition: "all .3s ease",
@@ -192,5 +192,126 @@ export function VideoPlayer({ src }: { src: string }) {
         </div>
       </div>
     </div>
+  );
+}
+
+export function ComparisonSlider({ before, after }: { before: string; after: string }) {
+  const [sliderPos, setSliderPos] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const updateWidth = () => setWidth(containerRef.current?.clientWidth || 0);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  const handleMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = "touches" in e ? (e as React.TouchEvent).touches[0].clientX : (e as React.MouseEvent).clientX;
+    const pos = ((x - rect.left) / rect.width) * 100;
+    setSliderPos(Math.min(100, Math.max(0, pos)));
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      onMouseMove={handleMove}
+      onTouchMove={handleMove}
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%', // Fill the parent container
+        overflow: 'hidden',
+        borderRadius: 24,
+        boxShadow: '0 30px 60px rgba(0,0,0,0.12)',
+        cursor: 'ew-resize',
+        userSelect: 'none',
+        background: C.off
+      }}
+    >
+      <img src={after} alt="After" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          width: `${sliderPos}%`,
+          overflow: 'hidden',
+          borderRight: `3px solid ${C.white}`,
+          zIndex: 10
+        }}
+      >
+        <div style={{ width: width, height: '100%' }}>
+          <img src={before} alt="Before" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+        </div>
+      </div>
+
+      {/* Control Handle */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: `${sliderPos}%`,
+        transform: 'translate(-50%, -50%)',
+        width: 48,
+        height: 48,
+        borderRadius: '50%',
+        background: C.white,
+        border: `4px solid ${C.gold}`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+        zIndex: 20,
+        pointerEvents: 'none'
+      }}>
+        <div style={{ display: 'flex', gap: 6 }}>
+          <div style={{ width: 0, height: 0, borderTop: '6px solid transparent', borderBottom: '6px solid transparent', borderRight: `10px solid ${C.gold}` }} />
+          <div style={{ width: 0, height: 0, borderTop: '6px solid transparent', borderBottom: '6px solid transparent', borderLeft: `10px solid ${C.gold}` }} />
+        </div>
+      </div>
+
+      <div style={{ position: 'absolute', top: 20, left: 20, background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', padding: '6px 14px', borderRadius: 6, color: '#fff', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, zIndex: 11 }}>Before</div>
+      <div style={{ position: 'absolute', top: 20, right: 20, background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', padding: '6px 14px', borderRadius: 6, color: '#fff', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, zIndex: 11 }}>After</div>
+    </div>
+  );
+}
+
+export function RevealCard({ before, after, title, desc, delay = 0 }: { before: string; after: string; title: string; desc: string; delay?: number }) {
+  const [h, setH] = useState(false);
+  return (
+    <Reveal d={delay} y={40}>
+      <div
+        onMouseEnter={() => setH(true)}
+        onMouseLeave={() => setH(false)}
+        style={{
+          background: C.white,
+          borderRadius: 20,
+          overflow: "hidden",
+          boxShadow: h ? "0 30px 60px rgba(0,0,0,.12)" : "0 10px 30px rgba(0,0,0,.04)",
+          transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: h ? "translateY(-8px)" : "none",
+          border: `1px solid ${h ? C.goldLt : 'transparent'}`
+        }}
+      >
+        <div style={{ aspectRatio: "1/1.2", position: "relative", overflow: "hidden", background: C.off }}>
+          <img src={before} alt="Before" style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 1.2s ease", transform: h ? "scale(1.05)" : "scale(1)" }} />
+          <div style={{ position: "absolute", inset: 0, opacity: h ? 1 : 0, transition: "opacity 0.6s ease" }}>
+            <img src={after} alt="After" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <div style={{ position: "absolute", bottom: 20, right: 20, background: C.gold, color: C.white, padding: "5px 12px", borderRadius: 4, fontFamily: body, fontSize: 10, fontWeight: 700, letterSpacing: 2, zIndex: 5, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
+            {h ? "AFTER" : "BEFORE"}
+          </div>
+        </div>
+        <div style={{ padding: 24 }}>
+          <h3 style={{ fontFamily: serif, fontSize: 22, color: C.dark, marginBottom: 10, fontWeight: 700 }}>{title}</h3>
+          <p style={{ fontFamily: body, fontSize: 16, color: C.mid, lineHeight: 1.6 }}>{desc}</p>
+        </div>
+      </div>
+    </Reveal>
   );
 }

@@ -42,26 +42,26 @@ function Hero() {
           </div>
 
           <div className="hero-img-stack" style={{ position: "relative", width: "100%", maxWidth: 540, marginLeft: "auto", ...a(.6) }}>
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gridTemplateRows:"repeat(2, 1fr)", gap:0, position:"relative", width:"100%", aspectRatio:"1/1" }}>
-              
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridTemplateRows: "repeat(2, 1fr)", gap: 0, position: "relative", width: "100%", aspectRatio: "1/1" }}>
+
               {/* Before Image - Top Left */}
-              <div style={{ position:"relative", gridColumn:"1", gridRow:"1", zIndex:2, transform: "scale(1.1) rotate(-2deg)", marginTop: 20 }}>
-                 <div style={{ position:"absolute", top:-12, left:-12, fontFamily:serif, fontSize:10, fontWeight:700, color:C.gold, letterSpacing:2.5, background:C.white, padding:"5px 12px", borderRadius:40, boxShadow:"0 4px 12px rgba(0,0,0,.05)", zIndex: 10, border:`1px solid ${C.goldLt}` }}>BEFORE</div>
-                 <div style={{ borderRadius:12, overflow:"hidden", boxShadow:"0 20px 50px rgba(0,0,0,.1)", border:`6px solid ${C.white}`, background:C.white }}>
-                    <img src="/images/EMINENCE/FEB_26/7_1.png" alt="Before" style={{ width:"100%", height:"100%", display:"block", objectFit: "cover" }} />
-                 </div>
+              <div style={{ position: "relative", gridColumn: "1", gridRow: "1", zIndex: 2, transform: "scale(1.1) rotate(-2deg)", marginTop: 20 }}>
+                <div style={{ position: "absolute", top: -12, left: -12, fontFamily: serif, fontSize: 10, fontWeight: 700, color: C.gold, letterSpacing: 2.5, background: C.white, padding: "5px 12px", borderRadius: 40, boxShadow: "0 4px 12px rgba(0,0,0,.05)", zIndex: 10, border: `1px solid ${C.goldLt}` }}>BEFORE</div>
+                <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,.1)", border: `6px solid ${C.white}`, background: C.white }}>
+                  <img src="/images/EMINENCE/FEB_26/7_1.png" alt="Before" style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }} />
+                </div>
               </div>
 
               {/* Decorative Frame Line */}
-              <div style={{ position:"absolute", top:"10%", left:"10%", width:"80%", height:"80%", border:`1px dashed ${C.gold}45`, borderRadius:24, zIndex:0 }} />
-              <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%) rotate(-45deg)", width:"70%", height:1, background:C.goldLt, zIndex:1, opacity:0.3 }} />
+              <div style={{ position: "absolute", top: "10%", left: "10%", width: "80%", height: "80%", border: `1px dashed ${C.gold}45`, borderRadius: 24, zIndex: 0 }} />
+              <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%) rotate(-45deg)", width: "70%", height: 1, background: C.goldLt, zIndex: 1, opacity: 0.3 }} />
 
               {/* After Image - Bottom Right */}
-              <div style={{ position:"relative", gridColumn:"2", gridRow:"2", zIndex:3, transform: "scale(1.15) rotate(1deg)", marginTop: -30, marginLeft: -30 }}>
-                 <div style={{ position:"absolute", bottom:10, right:10, fontFamily:serif, fontSize:11, fontWeight:700, color:C.white, letterSpacing:3, background:C.gold, padding:"8px 18px", borderRadius:40, boxShadow:"0 8px 20px rgba(0,0,0,.15)", zIndex: 10 }}>AFTER</div>
-                 <div style={{ borderRadius:12, overflow:"hidden", boxShadow:"0 30px 70px rgba(0,0,0,.15)", border:`8px solid ${C.white}`, background:C.white }}>
-                    <img src="/images/EMINENCE/FEB_26/7.png" alt="After" style={{ width:"100%", height:"100%", display:"block" }} />
-                 </div>
+              <div style={{ position: "relative", gridColumn: "2", gridRow: "2", zIndex: 3, transform: "scale(1.15) rotate(1deg)", marginTop: -30, marginLeft: -30 }}>
+                <div style={{ position: "absolute", bottom: 10, right: 10, fontFamily: serif, fontSize: 11, fontWeight: 700, color: C.white, letterSpacing: 3, background: C.gold, padding: "8px 18px", borderRadius: 40, boxShadow: "0 8px 20px rgba(0,0,0,.15)", zIndex: 10 }}>AFTER</div>
+                <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: "0 30px 70px rgba(0,0,0,.15)", border: `8px solid ${C.white}`, background: C.white }}>
+                  <img src="/images/EMINENCE/FEB_26/7.png" alt="After" style={{ width: "100%", height: "100%", display: "block" }} />
+                </div>
               </div>
 
 
@@ -94,27 +94,63 @@ function ServicesHub() {
   const subset = SERVICES.slice(0, 3);
 
   return (
-    <section className="md-py-60" style={{ padding: "140px 40px", background: C.cream }}>
-      <div style={{ maxWidth: 1380, margin: "0 auto" }}>
-        <Reveal y={40}>
-          <div className="md-col" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 60 }}>
-            <div>
-              <Eyebrow text="What We Offer" />
-              <h2 style={{ fontFamily: serif, fontSize: "clamp(40px,5vw,64px)", fontWeight: 700, color: C.dark, marginBottom: 18 }}>Featured Services</h2>
-            </div>
-            <Link href="/services" style={{ textDecoration: "none", marginBottom: 16 }}><Btn outline dark>View All Services</Btn></Link>
+    <section className="md-py-40" style={{ padding: "40px 20px", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh", background: C.cream, position: "relative", overflow: "hidden" }}>
+      {/* Decorative fluid background gradients */}
+      <div style={{ position: "absolute", top: "-10%", left: "-10%", width: 600, height: 600, background: "radial-gradient(circle, rgba(201,169,110,.08), transparent 70%)", borderRadius: "50%" }} />
+      <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: 700, height: 700, background: "radial-gradient(circle, rgba(201,169,110,.06), transparent 70%)", borderRadius: "50%" }} />
+
+      <div style={{ maxWidth: 1200, width: "100%", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <Reveal>
+          <div className="md-col-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: 40 }}>
+            <Eyebrow text="What We Offer" center />
+            <h2 style={{ fontFamily: serif, fontSize: "clamp(32px,4vw,48px)", fontWeight: 700, color: C.dark, marginBottom: 16, letterSpacing: "-0.5px" }}>Featured Services</h2>
+            <Link href="/services" style={{ textDecoration: "none" }}><Btn outline dark>Explore All Services</Btn></Link>
           </div>
         </Reveal>
 
-        <div className="srv-g" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2, background: "rgba(0,0,0,.04)", border: `1px solid rgba(0,0,0,.04)` }}>
+        <div className="srv-creative-g" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
           {subset.map((s, i) => (
-            <Reveal key={i} d={i * 0.1} y={30}>
-              <div onMouseEnter={() => setHov(i)} onMouseLeave={() => setHov(null)} style={{ background: hov === i ? C.dark : C.white, padding: "56px 44px", position: "relative", overflow: "hidden", transition: "all .5s cubic-bezier(0.16, 1, 0.3, 1)", height: "100%" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg,${C.gold},${C.goldLt})`, transform: `scaleX(${hov === i ? 1 : 0})`, transformOrigin: "left", transition: "transform .5s cubic-bezier(0.16, 1, 0.3, 1)" }} />
-                <div style={{ fontSize: 32, color: hov === i ? C.gold : "#E8D5B0", marginBottom: 28, transition: "color .5s" }}>{s.icon}</div>
-                <h3 style={{ fontFamily: serif, fontSize: 28, fontWeight: 700, color: hov === i ? C.white : C.dark, marginBottom: 8, transition: "color .5s" }}>{s.title}</h3>
-                <div style={{ fontFamily: body, fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: C.gold, textTransform: "uppercase", marginBottom: 20 }}>{s.subtitle}</div>
-                <p style={{ fontFamily: body, fontSize: 18, lineHeight: 1.8, color: hov === i ? "rgba(255,255,255,.7)" : C.mid, transition: "color .5s" }}>{s.desc}</p>
+            <Reveal key={i} d={i * 0.1} y={20}>
+              <div
+                className={`srv-arch-card ${i === 1 ? 'stagger' : ''}`}
+                onMouseEnter={() => setHov(i)}
+                onMouseLeave={() => setHov(null)}
+                style={{
+                  background: C.white,
+                  padding: "40px 24px 30px",
+                  position: "relative",
+                  transition: "all .5s cubic-bezier(0.25, 1, 0.5, 1)",
+                  height: "100%",
+                  borderRadius: "140px 140px 12px 12px",
+                  border: `1px solid ${hov === i ? 'rgba(201,169,110,.5)' : 'rgba(201,169,110,.25)'}`,
+                  boxShadow: hov === i ? "0 20px 40px rgba(201,169,110,.15)" : "0 8px 24px rgba(0,0,0,.04)",
+                  transform: hov === i ? "translateY(-8px)" : "translateY(0)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center"
+                }}
+              >
+                {/* Golden Halo around Icon */}
+                <div style={{
+                  width: 56, height: 56,
+                  borderRadius: "50%",
+                  background: hov === i ? "rgba(201,169,110,.15)" : "rgba(201,169,110,.05)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 20, color: C.goldDk, marginBottom: 20,
+                  transition: "all .4s ease"
+                }}>
+                  <span style={{ transform: hov === i ? "scale(1.15) rotate(10deg)" : "scale(1)", transition: "all .4s ease" }}>{s.icon}</span>
+                </div>
+
+                <h3 style={{ fontFamily: serif, fontSize: 24, fontWeight: 700, color: C.dark, marginBottom: 8, transition: "color .4s ease" }}>{s.title}</h3>
+                <div style={{ fontFamily: body, fontSize: 11, fontWeight: 700, letterSpacing: 2, color: C.goldDk, textTransform: "uppercase", marginBottom: 12, transition: "color .4s ease" }}>{s.subtitle}</div>
+                <p style={{ fontFamily: body, fontSize: 15, lineHeight: 1.5, color: C.mid, transition: "color .4s ease" }}>{s.desc}</p>
+
+                {/* Decorative bottom element */}
+                <div style={{ marginTop: "auto", paddingTop: 20 }}>
+                  <div style={{ width: hov === i ? 60 : 30, height: 1, background: hov === i ? "rgba(201,169,110,.6)" : "rgba(201,169,110,.3)", transition: "all .4s ease" }} />
+                </div>
               </div>
             </Reveal>
           ))}
@@ -126,27 +162,76 @@ function ServicesHub() {
 
 /* ── TRANSFORMATIONS HUB ── */
 function TransformationsHub() {
+  const [hov, setHov] = useState<number | null>(null);
+
   return (
-    <section className="md-py-60" style={{ padding: "140px 40px", background: C.off }}>
-      <div style={{ maxWidth: 1380, margin: "0 auto" }}>
+    <section className="md-py-40" style={{ padding: "10px 20px", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh", background: C.white, position: "relative", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, width: "100%", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <Reveal>
-          <div className="md-col" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 60 }}>
-            <div>
-              <Eyebrow text="See the Results" />
-              <h2 style={{ fontFamily: serif, fontSize: "clamp(40px,5vw,64px)", fontWeight: 700, color: C.dark, marginBottom: 16 }}>Before & After</h2>
+          <div className="trans-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 32, borderBottom: `1px solid rgba(201,169,110,.15)`, paddingBottom: 16 }}>
+            <div style={{ flex: "1 1 450px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <div style={{ width: 32, height: 1, background: C.gold }} />
+                <span style={{ fontFamily: body, fontSize: 11, letterSpacing: 4, color: C.goldDk, textTransform: "uppercase" }}>Visual Evidence</span>
+              </div>
+              <h2 style={{ fontFamily: serif, fontSize: "clamp(30px,4.5vw,48px)", fontWeight: 700, color: C.dark, lineHeight: 1, letterSpacing: "-0.5px", margin: 0 }}>
+                Before & <span style={{ color: C.goldDk, fontStyle: "italic", fontWeight: 400 }}>After</span>
+              </h2>
             </div>
-            <Link href="/transformations" style={{ textDecoration: "none", marginBottom: 16 }}><Btn outline dark>See Full Gallery</Btn></Link>
+            <div className="trans-desc-box" style={{ flex: "0 1 420px", display: "flex", justifyContent: "flex-end", alignItems: "flex-end" }}>
+              {/* <p style={{ fontFamily: body, fontSize: 13, lineHeight: 1.5, color: C.mid, marginBottom: 16 }}>
+                A natural looking hair system doesn't change who you are. It brings back the version of you that you've missed. Real transformations, real confidence.
+              </p> */}
+              <Link href="/transformations" style={{ textDecoration: "none" }}><Btn outline dark>Explore Full Gallery</Btn></Link>
+            </div>
           </div>
         </Reveal>
 
-        <div className="vids3-g" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
-          {IMAGES_BEFORE_AFTER.map((src, i) => (
-            <Reveal key={i} d={i * 0.1} y={40}>
-              <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 12px 30px rgba(0,0,0,.08)", height: 400 }}>
-                <img src={src} alt="Eminence Hair Before and After" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        {/* 3-Column Immersive Grid */}
+        <div className="trans-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          {IMAGES_BEFORE_AFTER.map((src, i) => {
+            const isHovered = hov === i;
+
+            return (
+              <div key={i} className="trans-grid-item">
+                <Reveal d={i * 0.1} y={15}>
+                  <div
+                    onMouseEnter={() => setHov(i)}
+                    onMouseLeave={() => setHov(null)}
+                    style={{
+                      position: "relative",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      background: C.off,
+                      boxShadow: isHovered ? "0 24px 50px rgba(0,0,0,.15)" : "0 8px 24px rgba(0,0,0,.04)",
+                      transform: isHovered ? "translateY(-6px)" : "translateY(0)",
+                      transition: "all .5s cubic-bezier(0.25, 1, 0.5, 1)",
+                      cursor: "pointer",
+                      border: `1px solid rgba(201,169,110,.15)`,
+                    }}
+                  >
+                    {/* CRITICAL GEOMETRY: Viewport height clamping to guarantee it fits on short 13" laptop screens securely. */}
+                    <div style={{ position: "relative", width: "100%", aspectRatio: "4/5", maxHeight: "calc(100vh - 220px)", minHeight: "260px" }}>
+                      <img
+                        src={src}
+                        alt="Eminence Hair Before and After"
+                        style={{
+                          width: "100%", height: "100%",
+                          /* Object fit contain secures text on aggressive clamping */
+                          objectFit: "contain",
+                          display: "block",
+                          transform: isHovered ? "scale(1.05)" : "scale(1)",
+                          transition: "transform 1s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                      />
+                      {/* Shadow grounding overlay */}
+                      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.08) 0%, transparent 20%)", pointerEvents: "none" }} />
+                    </div>
+                  </div>
+                </Reveal>
               </div>
-            </Reveal>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -158,37 +243,41 @@ function ReviewHub() {
   const t = TESTIMONIALS[0];
 
   return (
-    <section className="md-py-60 md-px-20" style={{ padding: "140px 40px", background: C.white, position: "relative", overflow: "hidden" }}>
+    <section className="md-py-40 md-px-20" style={{ padding: "10px 20px", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh", background: C.white, position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: -100, right: -100, width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,169,110,.05), transparent 65%)" }} />
-      <div style={{ maxWidth: 1180, margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: 1180, width: "100%", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
         <Reveal>
-          <div className="md-col-center" style={{ textAlign: "center", marginBottom: 60 }}>
+          <div className="md-col-center" style={{ textAlign: "center", marginBottom: 24 }}>
             <Eyebrow text="Real Stories" center />
-            <h2 style={{ fontFamily: serif, fontSize: "clamp(40px,5vw,64px)", fontWeight: 700, color: C.dark }}>Customer Experience</h2>
+            <h2 style={{ fontFamily: serif, fontSize: "clamp(32px,5vw,56px)", fontWeight: 700, color: C.dark }}>Customer Experience</h2>
           </div>
         </Reveal>
 
-        <Reveal y={40}>
-          <div className="t-card" style={{ display: "flex", background: C.cream, border: `1px solid rgba(201,169,110,.4)`, borderRadius: 4, overflow: "hidden", marginBottom: 48, boxShadow: "0 30px 60px rgba(0,0,0,.08)" }}>
-            <div style={{ flex: 1, padding: "72px 80px", position: "relative" }}>
-              <div style={{ fontFamily: serif, fontSize: 120, lineHeight: .6, color: C.goldDk, opacity: .12, marginBottom: 16 }}>"</div>
-              <p style={{ fontFamily: serif, fontSize: "clamp(24px,3vw,34px)", fontStyle: "italic", color: C.dark, lineHeight: 1.6, marginBottom: 40 }}>{t.text}</p>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Reveal y={20}>
+          <div className="t-card" style={{ display: "flex", background: C.cream, border: `1px solid rgba(201,169,110,.4)`, borderRadius: 12, overflow: "hidden", marginBottom: 24, boxShadow: "0 24px 50px rgba(0,0,0,.08)" }}>
+            <div style={{ flex: 1, padding: "40px 48px", position: "relative", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              {/* Float the huge quote mark out of the DOM geometry to save 80px+ of absolute height instantly! */}
+              <div style={{ position: "absolute", top: 16, left: 24, fontFamily: serif, fontSize: 160, lineHeight: 1, color: C.goldDk, opacity: 0.08, pointerEvents: "none" }}>"</div>
+
+              <p style={{ position: "relative", zIndex: 1, fontFamily: serif, fontSize: "clamp(20px,3vw,26px)", fontStyle: "italic", color: C.dark, lineHeight: 1.5, marginBottom: 24 }}>{t.text}</p>
+
+              <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <div>
-                  <div style={{ fontFamily: serif, fontSize: 22, fontWeight: 600, color: C.dark, marginBottom: 4 }}>{t.name}</div>
-                  <div style={{ fontFamily: body, fontSize: 14, color: C.gold, letterSpacing: 1.5, textTransform: "uppercase" }}>{t.location} · {t.service}</div>
+                  <div style={{ fontFamily: serif, fontSize: 20, fontWeight: 600, color: C.dark, marginBottom: 4 }}>{t.name}</div>
+                  <div style={{ fontFamily: body, fontSize: 12, color: C.gold, letterSpacing: 1.5, textTransform: "uppercase" }}>{t.location} · {t.service}</div>
                 </div>
                 <Stars n={t.rating} />
               </div>
             </div>
-            <div className="t-img-box" style={{ width: 360, background: C.white, position: "relative", flexShrink: 0 }}>
-              <img src={t.img} alt={t.name} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 1 }} key={t.img} />
+            {/* Expanding width slightly and using objectFit: contain eliminates the horizontal Canva poster text cropping. Background seamlessly blends with Canva beige edges. */}
+            <div className="t-img-box" style={{ width: 440, background: C.off, position: "relative", flexShrink: 0, borderLeft: `1px solid rgba(201,169,110,.2)` }}>
+              <img src={t.img} alt={t.name} style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 1 }} key={t.img} />
             </div>
           </div>
         </Reveal>
 
-        <Reveal d={0.2} y={30}>
+        <Reveal d={0.1} y={15}>
           <div style={{ textAlign: "center" }}>
             <Link href="/testimonials" style={{ textDecoration: "none" }}><Btn outline dark>Read All Reviews</Btn></Link>
           </div>
@@ -201,34 +290,68 @@ function ReviewHub() {
 /* ── ABOUT HUB ── */
 function AboutHub() {
   return (
-    <section style={{ padding: "140px 40px", background: C.cream }}>
-      <div className="ab-g" style={{ maxWidth: 1380, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
+    <section className="md-py-40" style={{ padding: "40px 40px", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh", background: C.white, position: "relative", overflow: "hidden" }}>
+      {/* Decorative background elements */}
+      <div style={{ position: "absolute", top: "20%", left: "-5%", width: 400, height: 400, background: "radial-gradient(circle, rgba(201,169,110,.05), transparent 70%)", borderRadius: "50%" }} />
 
+      <div className="ab-g" style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", position: "relative", zIndex: 1 }}>
+
+        {/* Left Side: Creative Image Composition */}
         <Reveal y={40}>
-          <div style={{ position: "relative" }}>
-            <div style={{ background: `linear-gradient(145deg,${C.dark},${C.brown})`, borderRadius: 4, padding: "72px 56px", position: "relative", overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,.2)" }}>
-              <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 25% 75%, rgba(201,169,110,.16), transparent 65%)" }} />
-              <img src="/images/cropped-EMINENCE-LOGO-BLACK-300x100.png" style={{ position: "absolute", bottom: 30, right: 30, width: 180, opacity: 0.1, filter: "invert(1)" }} alt="Logo Mark" />
+          <div className="ab-img-wrapper" style={{ position: "relative", paddingRight: 40, paddingBottom: 40 }}>
+            {/* Arched Studio Image */}
+            <div
+              className="ab-arch-frame"
+              style={{
+                width: "500px", // increase this
+                borderRadius: "240px 240px 24px 24px",
+                overflow: "hidden",
+                boxShadow: "0 40px 100px rgba(0,0,0,.1)",
+                border: `1px solid rgba(201,169,110,.2)`,
+                aspectRatio: "4/5",
+                maxHeight: "calc(100vh - 160px)",
+                position: "relative"
+              }}
+            >
+              <img src="/images/about/studio.png" alt="Eminence Hair Studio" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.2) 0%, transparent 40%)" }} />
+            </div>
 
+            {/* Overlapping Philosophy Card (Minimized & Bottom-Right) */}
+            <div className="ab-philosophy-card" style={{
+              position: "absolute",
+              bottom: "10px",
+              right: "48px",
+              width: "55%",
+              background: `linear-gradient(135deg,${C.dark}EE,${C.brown}EE)`,
+              borderRadius: 12,
+              padding: "24px 28px",
+              boxShadow: "0 20px 40px rgba(0,0,0,.25)",
+              zIndex: 10,
+              border: `1px solid rgba(255,255,255,.08)`,
+              backdropFilter: "blur(8px)"
+            }}>
+              <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at top left, rgba(201,169,110,.15), transparent 70%)" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
-                <div style={{ fontFamily: body, fontSize: 12, fontWeight: 700, letterSpacing: 4, color: C.gold, textTransform: "uppercase", marginBottom: 24 }}>Our Philosophy</div>
-                <div style={{ fontFamily: serif, fontSize: 32, fontStyle: "italic", color: C.white, lineHeight: 1.6, marginBottom: 40 }}>
+                <div style={{ fontFamily: body, fontSize: 8.5, fontWeight: 700, letterSpacing: 3, color: C.gold, textTransform: "uppercase", marginBottom: 10 }}>Our Philosophy</div>
+                <div style={{ fontFamily: serif, fontSize: 18, fontStyle: "italic", color: C.white, lineHeight: 1.4, marginBottom: 14 }}>
                   "Where every wig is a work of art, and every client is treated like royalty."
                 </div>
-                <div style={{ fontFamily: body, fontSize: 15, color: C.gold, letterSpacing: 2.5, textTransform: "uppercase" }}>— Eminence Hair Studio</div>
+                <div style={{ fontFamily: body, fontSize: 10, color: C.goldLt, letterSpacing: 1.5, textTransform: "uppercase", opacity: 0.7 }}>— Eminence Hair Studio</div>
               </div>
             </div>
           </div>
         </Reveal>
 
+        {/* Right Side: Content */}
         <Reveal d={0.2} y={40}>
           <div>
-            <Eyebrow text="Our Story" />
-            <h2 style={{ fontFamily: serif, fontSize: "clamp(40px,4vw,56px)", fontWeight: 700, color: C.dark, marginBottom: 28, lineHeight: 1.15 }}>Vadodara's Premier Wig & Hair Studio</h2>
-            <p style={{ fontFamily: body, fontSize: 22, lineHeight: 1.8, color: C.mid, marginBottom: 36 }}>
-              Welcome to Eminence Hair — where your confidence and style come first. We offer a curated selection of high-quality wigs and expert styling to help you look and feel your best.
+            <Eyebrow text="The Eminence Standard" />
+            <h2 style={{ fontFamily: serif, fontSize: "clamp(32px,4vw,48px)", fontWeight: 700, color: C.dark, marginBottom: 20, lineHeight: 1.1 }}>Vadodara's Premier <br /><span style={{ color: C.goldDk, fontWeight: 400, fontStyle: "italic" }}>Wig & Hair Studio</span></h2>
+            <p style={{ fontFamily: body, fontSize: "clamp(15px,1.8vh,18px)", lineHeight: 1.7, color: C.mid, marginBottom: 16 }}>
+              Welcome to Eminence Hair — where your confidence and style come first. We specialize in non-surgical hair replacement and premium extensions that seamlessly blend with your lifestyle. Each piece is meticulously curated and styled to ensure a natural look that restores the version of you that you've missed. At Eminence, we don't just provide hair; we provide a renewed sense of self.
             </p>
-            <Link href="/about" style={{ textDecoration: "none" }}><Btn outline dark>Learn More About Us</Btn></Link>
+            <Link href="/about" style={{ textDecoration: "none" }}><Btn outline dark>Discover Our Story</Btn></Link>
           </div>
         </Reveal>
 
@@ -243,8 +366,12 @@ export default function Home() {
     <>
       <style>{`
         .t-img-box { display: block; }
+        .srv-arch-card.stagger { margin-top: 24px; }
         @media (max-width: 1024px) {
-          .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding-top: 2px !important; }
+          .md-grid-split { grid-template-columns: 1fr !important; gap: 50px !important; }
+          .split-text-col { max-width: 100% !important; text-align: center !important; display: flex; flex-direction: column; align-items: center; }
+          .split-text-col > div, .split-text-col a { justify-content: center; }
+          .hero-grid { grid-template-columns: 1fr !important; gap: 60px !important; padding-top: 80px !important; }
           .hero-grid > div:first-child { 
             display: flex !important; 
             flex-direction: column !important; 
@@ -254,16 +381,31 @@ export default function Home() {
           }
           .hero-grid h1, .hero-grid p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
           .buttons-row { justify-content: center !important; }
-          .hero-grid div[style*="display: flex"] { justify-content: center !important; }
-          .hero-img-stack { margin: 0 auto; max-width: 500px; }
+          .hero-img-stack { margin: 40px auto 0; max-width: 480px; width: 100%; }
           .ab-g { grid-template-columns: 1fr !important; gap: 60px !important; }
+          .ab-img-wrapper { padding: 0 !important; margin-bottom: 40px !important; display: flex; flex-direction: column; align-items: center; }
+          .ab-arch-frame { width: 100% !important; max-width: 440px !important; }
+          .ab-philosophy-card { position: relative !important; width: 90% !important; right: auto !important; left: auto !important; bottom: auto !important; margin-top: -40px !important; padding: 24px 20px !important; text-align: center; }
+          .ab-philosophy-card div:first-child { align-items: center !important; }
+          .srv-creative-g { gap: 20px !important; }
+          .srv-arch-card { padding: 60px 24px 40px !important; border-radius: 120px 120px 16px 16px !important; }
+          section { min-height: auto !important; padding: 60px 20px !important; display: block !important; }
+          .trans-header { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 16px !important; border-bottom: none !important; height: auto !important; margin-bottom: 32px !important; }
+          .trans-header > div:first-child { flex: 1 1 auto !important; width: 100% !important; display: flex; flex-direction: column; align-items: center; }
+          .trans-desc-box { flex: 1 1 auto !important; width: 100% !important; text-align: center !important; max-width: 100% !important; border-bottom: 1px solid rgba(201,169,110,0.15); padding-bottom: 24px; height: auto !important; margin: 0 !important; }
+          .trans-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
         @media (max-width: 768px) {
-          .srv-g, .vids3-g { grid-template-columns: 1fr !important; }
+          .srv-creative-g, .vids3-g { grid-template-columns: 1fr !important; }
+          .srv-arch-card.stagger { margin-top: 0 !important; }
+          .srv-arch-card { border-radius: 160px 160px 16px 16px !important; }
           .stats-g { grid-template-columns: 1fr 1fr !important; }
           .t-card { flex-direction: column !important; min-height: auto !important; }
-          .t-img-box { width: 100% !important; height: 300px !important; }
-          .t-card > div:first-child { padding: 40px 30px !important; }
+          .t-img-box { width: 100% !important; height: auto !important; aspect-ratio: 4/5 !important; border-top: 1px solid rgba(201,169,110,0.1); }
+          .t-card > div:first-child { padding: 40px 24px !important; }
+          .md-col-center { text-align: center !important; align-items: center !important; }
+          section { padding: 60px 20px !important; }
+          .trans-grid { gap: 32px !important; }
         }
       `}</style>
       <Hero />
